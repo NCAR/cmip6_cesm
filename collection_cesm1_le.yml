@@ -1,0 +1,774 @@
+cesm1_le:
+  data_sources:
+    20C:
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.001
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 1
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.002
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 2
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.003
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 3
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.004
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 4
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.005
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 5
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.006
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 6
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.007
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 7
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.008
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 8
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.009
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 9
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.010
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 10
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.011
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 11
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.012
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 12
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.013
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 13
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.014
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 14
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.015
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 15
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.016
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 16
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.017
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 17
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.018
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 18
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.019
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 19
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.020
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 20
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.021
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 21
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.022
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 22
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.023
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 23
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.024
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 24
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.025
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 25
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.026
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 26
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.027
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 27
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.028
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 28
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.029
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 29
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.030
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 30
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.031
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 31
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.032
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 32
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.033
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 33
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.034
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 34
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.035
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 35
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.101
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 101
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.102
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 102
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.103
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 103
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.104
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 104
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    - case: b.e11.B20TRC5CNBDRD.f09_g16.105
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 105
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 0
+    CTRL:
+    - case: b.e11.B1850C5CN.f09_g16.005
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 5
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      year_offset: 1448
+    RCP45:
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.001
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 1
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.002
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 2
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.003
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 3
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.004
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 4
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.005
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 5
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.006
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 6
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.007
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 7
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.008
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 8
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.009
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 9
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.010
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 10
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.011
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 11
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.012
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 12
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.013
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 13
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.014
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 14
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP45C5CNBDRD.f09_g16.015
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 15
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    RCP85:
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.001
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 1
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.002
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 2
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.003
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 3
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.004
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 4
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.005
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 5
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.006
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 6
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.007
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 7
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.008
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 8
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.009
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 9
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.010
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 10
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.011
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 11
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.012
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 12
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.013
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 13
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.014
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 14
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.015
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 15
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.016
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 16
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.017
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 17
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.018
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 18
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.019
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 19
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.020
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 20
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.021
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 21
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.022
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 22
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.023
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 23
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.024
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 24
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.025
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 25
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.026
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 26
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.027
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 27
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.028
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 28
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.029
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 29
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.030
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 30
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.031
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 31
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.032
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 32
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.033
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 33
+      has_ocean_bgc: false
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.034
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 34
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.035
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 35
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.101
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 101
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.102
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 102
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.103
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 103
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.104
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 104
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+    - case: b.e11.BRCP85C5CNBDRD.f09_g16.105
+      component_attrs:
+        ocn: {grid: POP_gx1v6}
+      ensemble: 105
+      has_ocean_bgc: true
+      path_structure: component/proc/tseries/freq/variable
+      root_dir: /glade/collections/cdg/data/cesmLE/CESM-CAM5-BGC-LE
+      sequence_order: 1
+  type: cesm

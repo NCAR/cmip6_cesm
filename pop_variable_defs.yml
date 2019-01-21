@@ -1,0 +1,122 @@
+FG_CO2:
+  category: Cflux
+FvTOT_DIC:
+  category: Cflux
+  derived_sum:
+    - FvPER_DIC
+    - FvICE_DIC
+IRON_FLUX:
+  category: Feflux
+tend_zint_100m_DIC:
+  category: Cflux
+tend_zint_100m_DOC:
+  category: Cflux
+Jint_100m_DIC:
+  category: Cflux
+Jint_100m_DOC:
+  category: Cflux
+Jint_100m_ALK:
+  category: Cflux
+photoC_TOT_zint:
+  category: Cflux
+photoC_sp_zint:
+  category: Cflux
+photoC_diat_zint:
+  category: Cflux
+photoC_diaz_zint:
+  category: Cflux
+POC_100m:
+  category: Cflux
+  derived_zindex:
+    [POC_FLUX_IN , 101.]
+CaCO3_FLUX_100m:
+  category: Cflux
+SiO2_100m:
+  category: Siflux
+  derived_zindex:
+    [SiO2_FLUX_IN , 101. ]
+diaz_Nfix:
+  category: Nflux
+  operations:
+    - vertical_integral
+DENITRIF:
+  category: Nflux
+  operations:
+    - vertical_integral
+NOx_FLUX:
+  category: Nflux
+NHy_FLUX:
+  category: Nflux
+DIC_RIV_FLUX:
+  category: Cflux
+DOC_RIV_FLUX:
+  category: Cflux
+ALK_RIV_FLUX:
+  category: Cflux
+NO3_RIV_FLUX:
+  category: Nflux
+DON_RIV_FLUX:
+  category: Nflux
+DONr_RIV_FLUX:
+  category: Nflux
+SiO3_RIV_FLUX:
+  category: Siflux
+pocToSed:
+  category: Cflux
+calcToSed:
+  category: Cflux
+ponToSed:
+  category: Nflux
+SedDenitrif:
+  category: Nflux
+bsiToSed:
+  category: Siflux
+pCO2SURF:
+  category: diagave
+DpCO2:
+  category: diagave
+PH:
+  category: diagave
+ATM_CO2:
+  category: diagave
+O2_ZMIN:
+  category: diagave
+O2_ZMIN_DEPTH:
+  category: diagave
+NO3:
+  category: tracer
+PO4:
+  category: tracer
+SiO3:
+  category: tracer
+O2:
+  category: tracer
+Fe:
+  category: tracer
+DIC:
+  category: tracer
+ALK:
+  category: tracer
+IAGE:
+  category: tracer
+SALT:
+  category: tracer
+TEMP:
+  category: tracer
+HMXL:
+  category: diagave
+IFRAC:
+  category: diagave
+SHF_TOTAL:
+  category: diagave
+  derived_sum:
+    - SHF
+    - QFLUX
+ACC:
+  category: transport
+  derived:
+    - BSF
+KAPPA_ISOP:
+  category: diagave
+KAPPA_THIC:
+  category: diagave

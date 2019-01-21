@@ -1,0 +1,23 @@
+clm-1990s:
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_climatology
+      kwargs: {}
+  sel_kwargs:
+    time:
+      !!python/object/apply:slice
+      args: ['1990-01-01', '1999-12-31']
+
+ann-rgn:
+  file_format: zarr
+  operators:
+    - !operator
+      module: pop_util
+      function: make_regional_timeseries
+      kwargs: {}
+    - !operator
+      module: esmlab.climatology
+      function: compute_ann_climatology
+      kwargs: {}

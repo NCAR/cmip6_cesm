@@ -21,16 +21,14 @@ import data_catalog
 
 #-- settings (move to config.yml or similar)
 USER = os.environ['USER']
-file_format = 'zarr'
 
-project_name = os.path.basename(os.getcwd())
-dirout = f'/glade/scratch/{USER}/calcs/{project_name}'
+dirout = f'/glade/scratch/{USER}/calcs'
 if not os.path.exists(dirout):
-    check_call(['mkdir','-p',dirout])
+    os.makedirs(dirout)
 
 tmpdir = f'{dirout}/work'
 if not os.path.exists(tmpdir):
-    check_call(['mkdir','-p',tmpdir])
+    os.makedirs(tmpdir)
 
 logging.basicConfig(level=logging.INFO)
 
@@ -51,22 +49,9 @@ def pop_calc_zonal_mean(file_in):
                                     suffix='.nc')
 
     rmask_file = '/glade/work/mclong/grids/PacAtlInd_REGION_MASK_gx1v6.nc'
-    #print(' '.join([za,'-O','-rmask_file',rmask_file,'-o',file_out,file_in]))
     check_call([za,'-O','-rmask_file',rmask_file,'-o',file_out,file_in])
 
     return file_out
-
-class derived_var_definition():
-    def __init__(self,methods,vars_dependent,methods_kwargs=None):
-
-        if not isinstance(methods,list):
-            methods = [methods]
-
-        self.methods = methods
-        self.vars_dependent = vars_dependent
-        if methods_kwargs is None:
-            methods_kwargs = [{} for m in methods]
-        self.methods_kwargs = methods_kwargs
 
 
 class yaml_operator(yaml.YAMLObject):
@@ -102,11 +87,11 @@ class yaml_operator(yaml.YAMLObject):
 class process_data_source(object):
     '''Class to support preprocessing operations.'''
 
+    def __init__(self, analysis_name, isderived=False, clobber=False,
+                 **query_kwargs):
 
-    def __init__(self, analysis_name, clobber=False, **query_kwargs):
-        importlib.reload(calc)
-        importlib.reload(pop_util)
-
+        import popeos
+        importlib.reload(popeos)
         #-- parse query: hardwired now for certain fields
         self.experiment = query_kwargs['experiment']
         self.variable = query_kwargs.pop('variable')
@@ -118,28 +103,29 @@ class process_data_source(object):
 
         analysis = analysis_defs[analysis_name]
 
+        if 'description' in analysis:
+            self.analysis_description = analysis['description']
         self.operators = analysis.pop('operators', [lambda ds: ds])
-
         self.sel_kwargs = analysis.pop('sel_kwargs', {})
         self.isel_kwargs = analysis.pop('isel_kwargs', {})
-
         self.derived_var_def = analysis.pop('derived_var_def', None)
         self.file_format = analysis.pop('file_format', 'nc')
-
-        #-- do some checking and rationalizing
         if self.file_format not in ['nc','zarr']:
-            raise ValueError(f'Unknown file format: {self.file_format}')
+            raise ValueError(f'unknown file format: {self.file_format}')
 
-        if self.derived_var_def is not None:
-            #if not isinstance(self.derived_var_def,project.derived_var_definition):
-            #    raise ValueError('Expecting type derived_var_definition')
-            self.operators = self.derived_var_def.methods + self.operators
-            self.operators_kwargs = self.derived_var_def.methods_kwargs + self.operators_kwargs
+        if isderived:
+            with open('derived_variable_definitions.yml') as f:
+                derived_var_defs = yaml.load(f)
+
+            derived_var_def = derived_var_defs[self.variable]
+            self.vars_dependent = derived_var_def['vars_dependent']
+            self.operators = derived_var_def['methods'] + self.operators
 
         #-- set some attrs
         self.dirout = os.path.join(dirout, 'processed_collections')
 
         #-- pull specified dataset from catalog
+        self.catalog = data_catalog.get_catalog()
         ensembles = data_catalog.find_in_index(**query_kwargs).ensemble.unique()
         self.n_members = len(ensembles)
 
@@ -151,7 +137,8 @@ class process_data_source(object):
 
         for ens_i in ensembles:
 
-            file_out = '.'.join([self.experiment,
+            file_out = '.'.join([self.catalog,
+                                 self.experiment,
                                  '%03d'%ens_i,
                                  self.analysis_name,
                                  self.variable,
@@ -166,18 +153,17 @@ class process_data_source(object):
 
             if not os.path.exists(file_out):
 
-                if self.derived_var_def is None:
+                if not isderived:
                     data_desc = data_catalog.get_entries(ensemble=ens_i,
                                                          variable=self.variable,
                                                          **query_kwargs)
                     n_files = len(data_desc['files'])
 
                 else:
-                    data_desc = [
-                        data_catalog.get_entries(ensemble=ens_i, variable=v,
-                                                 **query_kwargs)
-                        for v in self.derived_var_def.vars_dependent]
-
+                    data_desc = [data_catalog.get_entries(ensemble=ens_i,
+                                                          variable=v,
+                                                          **query_kwargs)
+                                 for v in self.vars_dependent]
                     n_files = len(data_desc[0]['files'])
 
                 if n_files > 0:
@@ -231,19 +217,20 @@ class process_data_source(object):
         '''Apply a preprocessing workflow to specified datasets and save a
            cached file.'''
 
-        files_input = data_input['files']
 
         # if files_in is a 2D list, merge the files
-        if isinstance(files_input[0],list):
-            year_offset = data_input['year_offset'][0][0]
+        if isinstance(data_input,list):
+            year_offset = data_input[0]['year_offset'][0]
             dsi = xr.Dataset()
-            for v, f in zip(self.derived_var_def.vars_dependent, files_input):
+            for v, d in zip(self.vars_dependent, data_input):
+                f = d['files']
                 dsi = xr.merge((dsi,xr.open_mfdataset(f,
                                                       decode_times=False,
                                                       decode_coords=False,
                                                       data_vars=[v],
                                                       chunks={'time':1})))
         else: # concat with time
+            files_input = data_input['files']
             year_offset = data_input['year_offset'][0]
             dsi = xr.open_mfdataset(files_input,
                                     decode_times=False,

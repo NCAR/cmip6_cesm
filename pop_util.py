@@ -98,7 +98,7 @@ def derived_var(varname, ds):
         return derive_var_pCFC12(ds)[varname]
     elif varname == 'pCFC12':
         return derive_var_pCFC12(ds)[varname]
-    elif varname == 'MLD':
+    elif varname == 'MLD_03':
         return derive_var_MLD(ds)[varname]
     else:
         raise ValueError('derived_var: Unknown varname: {0}'.format(varname))

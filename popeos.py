@@ -7,7 +7,7 @@ def pressure(depth_in):
   + 0.100766 * depth + 2.28405e-7 * ( depth ** 2.0 )
 
 
-def eos(SALT,TEMP,DEPTH,PRESS_IN=False):
+def eos(SALT, TEMP, DEPTH, PRESS_IN=False):
     '''
     compute density as a function of
       SALT (salinity, psu),
@@ -78,17 +78,25 @@ def eos(SALT,TEMP,DEPTH,PRESS_IN=False):
     smin =   0.0
     smax = 999.0
 
-    old_err_settings = np.seterr(invalid='ignore')
-    
-    TQ = np.double(TEMP)
-    TQ = np.where(TQ < tmin, tmin, TQ)
-    TQ = np.where(TQ > tmax, tmax, TQ)
+    #old_err_settings = np.seterr(invalid='ignore')
 
-    SQ = np.double(SALT)
-    SQ = np.where(SQ < smin, smin, SQ)
-    SQ = np.where(SQ > smax, smax, SQ)
+    TQ = TEMP # np.double(TEMP)
+    valid = TQ.notnull()
+    #TQ = np.where(TQ < tmin, tmin, TQ)
+    #TQ = np.where(TQ > tmax, tmax, TQ)
+    TQ = TQ.where(TQ < tmin).fillna(tmin)
+    TQ = TQ.where(TQ > tmax).fillna(tmax)
+    TQ = TQ.where(valid)
 
-    np.seterr(**old_err_settings)
+    SQ = SALT # np.double(SALT)
+    valid = SQ.notnull()
+    #SQ = np.where(SQ < smin, smin, SQ)
+    #SQ = np.where(SQ > smax, smax, SQ)
+    SQ = SQ.where(SQ < smin).fillna(smin)
+    SQ = SQ.where(SQ > smax).fillna(smax)
+    SQ = SQ.where(valid)
+
+    #np.seterr(**old_err_settings)
 
     #------------------------------------------------------------
     # compute pressure

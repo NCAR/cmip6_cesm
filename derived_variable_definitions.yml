@@ -1,0 +1,15 @@
+pCFC11:
+  methods:
+    - !operator
+      module: pop_util
+      function: derive_var_pCFC11
+      kwargs: {}
+  vars_dependent: [CFC11, TEMP, SALT]
+
+MLD_03:
+  methods:
+    - !operator
+      module: pop_util
+      function: derive_var_MLD
+      kwargs: {'Dsigma': 0.03}
+  vars_dependent: [TEMP, SALT]

@@ -22,6 +22,10 @@ def set_catalog(catalog_name):
     active_database_file_name = f'{libdir}/{catalog_name}.csv'
     print(f'active catalog: {catalog_name}')
 
+def get_catalog():
+    if active_database_file_name is None:
+        raise ValueError('no catalog set.')
+    return os.path.basename(active_database_file_name).replace('.csv', '')
 
 def get_files(**kwargs):
     '''return files according to requested data.

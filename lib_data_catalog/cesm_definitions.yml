@@ -27,6 +27,7 @@ component_streams:
       - pop.h.ecosys.nday1
       - pop.h.ecosys.nyear1
       - pop.h
+      - pop.h.sigma
     atm:
       - cam.h0
       - cam.h1
@@ -71,7 +72,7 @@ component_streams:
       - cice.h1
       - cice.h
     glc:
-      - cism.h      
+      - cism.h
       - cism.h0
       - cism.h1
       - cism.h2

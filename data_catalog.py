@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 import os
+import fnmatch
 import re
 import pandas as pd
 import numpy as np
@@ -100,6 +101,7 @@ def _extract_cesm_date_str(filename):
 
     # must be in order of longer to shorter strings
     # TODO: make this function return a date object as well as string
+    # should it also return a freq?
     datestrs = [r'\d{12}Z-\d{12}Z',
                 r'\d{10}Z-\d{10}Z',
                 r'\d{8}-\d{8}',
@@ -114,69 +116,44 @@ def _extract_cesm_date_str(filename):
     raise ValueError(f'unable to match date string: {filename}')
 
 
-def _extract_cesm_varname_str(filename, case, component, component_streams):
-    '''Extract varname from case.stream.varname.datestr.nc file pattern.'''
-
-    # define lists of stream strings
-    datestr = _extract_cesm_date_str(filename)
-
-    # loop over stream strings (order matters!)
-    for stream in sorted(component_streams[component], key=lambda s: len(s),
-                         reverse=True):
-
-        # search for case.stream part of filename
-        case_stream = '.'.join([case, stream])
-        s = filename.find(case_stream)
-
-        if s >= 0: # got a match
-            # get varname.datestr.nc part of filename
-            l = len(case_stream)
-            varname_datestr_nc = filename[s+l+1:]
-            varname = varname_datestr_nc[:varname_datestr_nc.find('.')]
-
-            # assert expected pattern
-            datestr_nc = varname_datestr_nc[
-                varname_datestr_nc.find(f'.{varname}.')+len(varname)+2:]
-
-            # ensure that file name conforms to expectation
-            assert datestr_nc == f'{datestr}.nc', (f'Filename: {filename} does'
-                                                   ' not conform to expected'
-                                                   ' pattern')
-
-            return varname
-
-def _cesm_filename_parts(filename, component, component_streams):
+def _cesm_filename_parts(filename, component_streams):
     '''Extract each part of case.stream.variable.datestr.nc file pattern.'''
 
     # define lists of stream strings
     datestr = _extract_cesm_date_str(filename)
 
+
+    for component, streams in component_streams.items():
     # loop over stream strings (order matters!)
-    for stream in sorted(component_streams[component], key=lambda s: len(s),
-                         reverse=True):
+        for stream in sorted(streams, key=lambda s: len(s),
+                             reverse=True):
 
-        # search for case.stream part of filename
-        s = filename.find(stream)
+            # search for case.stream part of filename
+            s = filename.find(stream)
 
-        if s >= 0: # got a match
-            # get varname.datestr.nc part of filename
-            case = filename[0:s-1]
-            l = len(stream)
-            variable_datestr_nc = filename[s+l+1:]
-            variable = variable_datestr_nc[:variable_datestr_nc.find('.')]
+            if s >= 0: # got a match
+                # get varname.datestr.nc part of filename
+                case = filename[0:s-1]
+                l = len(stream)
+                variable_datestr_nc = filename[s+l+1:]
+                variable = variable_datestr_nc[:variable_datestr_nc.find('.')]
 
-            # assert expected pattern
-            datestr_nc = variable_datestr_nc[
-                variable_datestr_nc.find(f'.{variable}.')+len(variable)+2:]
+                # assert expected pattern
+                datestr_nc = variable_datestr_nc[
+                    variable_datestr_nc.find(f'.{variable}.')+len(variable)+2:]
 
-            # ensure that file name conforms to expectation
-            if datestr_nc != f'{datestr}.nc':
-                logging.warning(f'Filename: {filename} does'
-                                ' not conform to expected'
-                                ' pattern')
-                return
-            return {'case': case, 'stream': stream, 'variable': variable,
-                    'datestr': datestr}
+                # ensure that file name conforms to expectation
+                if datestr_nc != f'{datestr}.nc':
+                    logging.warning(f'Filename: {filename} does'
+                                    ' not conform to expected'
+                                    ' pattern')
+                    return
+
+                return {'case': case, 'component': component, 'stream': stream,
+                        'variable': variable, 'datestr': datestr}
+
+    raise ValueError(f'could not identify CESM fileparts: {filename}')
+
 
 def _build_catalog_cesm(collection, catalog_columns, catalog_definition):
     '''Build a CESM data catalog.'''
@@ -197,20 +174,20 @@ def _build_catalog_cesm(collection, catalog_columns, catalog_definition):
 
             root_dir = d_attrs['root_dir']
             case = d_attrs['case']
-            path_structure = d_attrs['path_structure']
             component_attrs = d_attrs['component_attrs']
+
+            exclude_dirs = []
+            if 'exclude_dirs' in d_attrs:
+                exclude_dirs = d_attrs['exclude_dirs']
+
             entry.update({key: val for key, val in d_attrs.items()
                                if key in catalog_columns})
 
             if 'ensemble' not in d_attrs:
                 entry.update({'ensemble': ens})
-                                
+
             if 'sequence_order' not in d_attrs:
                 entry.update({'sequence_order': 0})
-
-            path_structure_split = path_structure.split('/')
-            index_comp = path_structure_split.index('component') - len(path_structure_split)
-            index_freq = path_structure_split.index('freq') - len(path_structure_split)
 
             w = os.walk(os.path.join(root_dir))
 
@@ -223,39 +200,31 @@ def _build_catalog_cesm(collection, catalog_columns, catalog_definition):
                 if not sfiles:
                     continue
 
-                # expecting: path/to/here/component/proc/tseries/freq/*.nc
-                # in some cases, for instance, there will be files in
-                # component/hist, but we don't want those
-                root_split = root.split('/')
-                if 'proc' not in root_split and 'tseries' not in root_split:
+                # skip directories specified in `exclude_dirs`
+                local_root = root.replace(root_dir+'/', '')
+                if any(fnmatch.fnmatch(local_root, exclude_dir)
+                       for exclude_dir in exclude_dirs):
+                    logging.warning(f'skipping {root}')
                     continue
 
-                component = root_split[index_comp]
-                freq = root_split[index_freq]
-
-                if component not in component_streams:
-                    print(root_split)
-                    raise ValueError(f'unknown component: {component}')
-                entry.update({'component': component, 'freq': freq})
-
-                if component in component_attrs:
-                    entry.update({key: val for key, val in
-                                  component_attrs[component].items()
-                                  if key in catalog_columns})
                 fs = []
                 for f in sfiles:
-                    fileparts = _cesm_filename_parts(f, component,
-                                                     component_streams)
+                    fileparts = _cesm_filename_parts(f, component_streams)
 
                     if fileparts is None:
                         continue
                     if fileparts['case'] != case:
                         continue
 
-                    #variable = _extract_cesm_varname_str(f, case, component,
-                    #                                     component_streams)
+                    component = fileparts['component']
+                    if component in component_attrs:
+                        entry.update({key: val for key, val in
+                                      component_attrs[component].items()
+                                      if key in catalog_columns})
+
                     entry.update({'variable': fileparts['variable'],
-                                  'freq': freq,
+                                  'component': component,
+                                  'stream': fileparts['stream'],
                                   'date_range': fileparts['datestr'].split('-'),
                                   'file_basename': f,
                                   'files': os.path.join(root,f)})

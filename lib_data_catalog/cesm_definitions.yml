@@ -1,7 +1,7 @@
 catalog_columns:
   - experiment
   - component
-  - freq
+  - stream
   - variable
   - date_range
   - case
@@ -71,6 +71,7 @@ component_streams:
       - cice.h1
       - cice.h
     glc:
+      - cism.h      
       - cism.h0
       - cism.h1
       - cism.h2

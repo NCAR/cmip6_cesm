@@ -16,7 +16,7 @@ import dask
 import xarray as xr
 import cftime
 
-import calc
+import esmlab
 import data_catalog
 
 #-- settings (move to config.yml or similar)
@@ -87,8 +87,8 @@ class yaml_operator(yaml.YAMLObject):
 class process_data_source(object):
     '''Class to support preprocessing operations.'''
 
-    def __init__(self, analysis_name, isderived=False, clobber=False,
-                 **query_kwargs):
+    def __init__(self, analysis_name, analysis_recipes, isderived=False,
+                 clobber=False, **query_kwargs):
 
         import popeos
         importlib.reload(popeos)
@@ -98,9 +98,8 @@ class process_data_source(object):
 
         # get the analysis definition
         self.analysis_name = analysis_name
-        with open('analysis_definitions.yml') as f:
+        with open(analysis_recipes) as f:
             analysis_defs = yaml.load(f)
-
         analysis = analysis_defs[analysis_name]
 
         if 'description' in analysis:
@@ -127,7 +126,13 @@ class process_data_source(object):
         #-- pull specified dataset from catalog
         self.catalog = data_catalog.get_catalog()
         ensembles = data_catalog.find_in_index(**query_kwargs).ensemble.unique()
+        if len(ensembles) == 0:
+            raise ValueError(f'catalog contains no data for this query:\n'
+                             f'{query_kwargs}')
+
         self.n_members = len(ensembles)
+
+
 
         self.cache_locations = []
         self.input = [] # if the cached_locations are present,
@@ -235,15 +240,18 @@ class process_data_source(object):
             dsi = xr.open_mfdataset(files_input,
                                     decode_times=False,
                                     decode_coords=False,
-                                    #data_vars=[self.variable],
+                                    data_vars=[self.variable],
                                     chunks={'time': 1})
 
-
-        dso = calc.fix_time(dsi, year_offset=year_offset)
+        tb_name, tb_dim = esmlab.utils.time_bound_var(dsi)
+        if tb_name and tb_dim:
+            dso = esmlab.utils.compute_time_var(dsi, tb_name, tb_dim,
+                                                year_offset=year_offset)
 
         if self.sel_kwargs:
             logging.info(f'Applying sel_kwargs: {self.sel_kwargs}')
             dso = dso.sel(**self.sel_kwargs)
+
 
         if self.isel_kwargs:
             logging.info(f'Applying isel_kwargs: {self.isel_kwargs}')
@@ -253,9 +261,8 @@ class process_data_source(object):
             logging.info(f'Applying operator: {op}')
             dso = op(dso)
 
-        dso = calc.unfix_time(dso)
+        dso = esmlab.utils.uncompute_time_var(dso, tb_name, tb_dim)
 
-        #dso.to_netcdf(file_out,unlimited_dims=['time'])
         self._write_output(dso, file_out)
 
         dsi.close()
@@ -264,13 +271,12 @@ class process_data_source(object):
         '''Open a dataset using appropriate method.'''
 
         if self.file_format == 'nc':
-            ds = xr.open_mfdataset(filename,decode_times=False,
-                                     decode_coords=False,
-                                     data_vars=[self.variable],
-                                     chunks={'time':1})
+            ds = xr.open_mfdataset(filename, decode_coords=False,
+                                   data_vars=[self.variable],
+                                   chunks={'time':1})
+
         elif self.file_format == 'zarr':
-            ds = xr.open_zarr(filename,decode_times=False,
-                                decode_coords=False)
+            ds = xr.open_zarr(filename, decode_coords=False)
 
         #-- fix time?
         return ds

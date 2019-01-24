@@ -1,0 +1,121 @@
+
+
+#-------------------------------------------------------------------------------
+#--- monthly climatology operators
+#-------------------------------------------------------------------------------
+
+monclim:
+  description: compute monthly climatology
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_climatology
+      kwargs: {}
+
+monclim_1990s:
+  description: compute monthly climatology over 1990-1999
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_climatology
+      kwargs: {}
+  sel_kwargs:
+    time:
+      !!python/object/apply:slice
+      args: ['1990-01-01', '1999-12-31']
+
+monclim_1983-2009:
+  description: compute monthly climatology over 1983-2009
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_climatology
+      kwargs: {}
+  sel_kwargs:
+    time:
+      !!python/object/apply:slice
+      args: ['1983-01-01', '2009-12-31']
+
+monclim_1983-2015:
+  description: compute monthly climatology over 1983-2015
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_climatology
+      kwargs: {}
+  sel_kwargs:
+    time:
+      !!python/object/apply:slice
+      args: ['1983-01-01', '2015-12-31']
+
+#-------------------------------------------------------------------------------
+#--- regional mean operators
+#-------------------------------------------------------------------------------
+
+ann-rgn-pop:
+  description: compute regional-mean timeseries from POP variables
+  file_format: zarr
+  operators:
+    - !operator
+      module: pop_util
+      function: make_regional_timeseries
+      kwargs: {}
+    - !operator
+      module: esmlab.climatology
+      function: compute_ann_mean
+      kwargs: {}
+
+#-------------------------------------------------------------------------------
+#--- annual mean operators
+#-------------------------------------------------------------------------------
+
+annmean:
+  description: compute annual means
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_ann_mean
+      kwargs: {}
+
+annmean_1948-2009:
+  description: compute annual means
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_ann_mean
+      kwargs: {}
+  sel_kwargs:
+    time:
+      !!python/object/apply:slice
+      args: ['1948-01-01', '2009-12-31']
+
+#-------------------------------------------------------------------------------
+#--- monthly anomaly operators
+#-------------------------------------------------------------------------------
+
+monanom:
+  description: compute monthly anomalies
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_anomaly
+      kwargs: {}
+
+monanom_rel-1983-2015:
+  description: compute monthly anomalies
+  file_format: nc
+  operators:
+    - !operator
+      module: esmlab.climatology
+      function: compute_mon_anomaly
+      kwargs:
+        slice_mon_clim_time:
+          !!python/object/apply:slice
+          args: ['1983-01-01', '2015-12-31']

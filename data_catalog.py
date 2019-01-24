@@ -15,11 +15,13 @@ libdir = './lib_data_catalog'
 active_database_file_name = None
 
 
-def set_catalog(catalog_name):
+def set_catalog(catalog_name, check_exists=True):
     '''Point to a catalog database file.'''
     # TODO: this is not threadsafe...whole thing should be a class
     global active_database_file_name
     active_database_file_name = f'{libdir}/{catalog_name}.csv'
+    if not os.path.exists(active_database_file_name):
+        raise OSError(f'cannot set catalog: "{catalog_name}" d.n.e.')
     print(f'active catalog: {catalog_name}')
 
 def get_catalog():
@@ -89,7 +91,7 @@ def build_catalog(collection_input_file, clobber=False):
             if not req_col in catalog_columns:
                 raise ValueError(f'missing required column: {req_col}')
 
-        set_catalog(catalog_name)
+        set_catalog(catalog_name, check_exists=False)
         if os.path.isfile(active_database_file_name) and not clobber:
             continue
 
